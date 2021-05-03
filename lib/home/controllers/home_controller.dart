@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:stok_profit_app/global/controllers/main_controller.dart';
 
 class HomeController extends GetxController {
   TextEditingController sharesTextfield = TextEditingController();
@@ -7,6 +9,24 @@ class HomeController extends GetxController {
   TextEditingController sellPriceTextfield = TextEditingController();
   TextEditingController commissionTextfield = TextEditingController();
   var result = 0.0.obs;
+  BannerAd banner;
+
+  @override
+  void onReady() {
+    super.onReady();
+    final MainController controller = Get.find();
+    final adState = controller.adState;
+    adState.initialization.then((status) {
+      banner = BannerAd(
+          size: AdSize.banner,
+          adUnitId: adState.bannerAdUnitId,
+          request: AdRequest(),
+          listener: adState.adListener)
+        ..load();
+    });
+    update();
+  }
+
   calculate() {
     if (sharesTextfield.text != "" &&
         buyPriceTextfield.text != "" &&
