@@ -9,7 +9,8 @@ class HomeController extends GetxController {
   TextEditingController sellPriceTextfield = TextEditingController();
   TextEditingController commissionTextfield = TextEditingController();
   var result = 0.0.obs;
-  BannerAd banner;
+  BannerAd bannerAdTop;
+  BannerAd bannerAdBottom;
 
   @override
   void onReady() {
@@ -17,7 +18,14 @@ class HomeController extends GetxController {
     final MainController controller = Get.find();
     final adState = controller.adState;
     adState.initialization.then((status) {
-      banner = BannerAd(
+      bannerAdTop = BannerAd(
+          size: AdSize.banner,
+          adUnitId: adState.bannerAdUnitId,
+          request: AdRequest(),
+          listener: adState.adListener)
+        ..load();
+
+      bannerAdBottom = BannerAd(
           size: AdSize.banner,
           adUnitId: adState.bannerAdUnitId,
           request: AdRequest(),

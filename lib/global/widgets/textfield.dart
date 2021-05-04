@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 textfield(TextEditingController textEditingController, String labeltext) {
   return Container(
@@ -8,6 +9,7 @@ textfield(TextEditingController textEditingController, String labeltext) {
       controller: textEditingController,
       textAlign: TextAlign.center,
       keyboardType: TextInputType.number,
+      textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         labelText: labeltext,
         alignLabelWithHint: true,

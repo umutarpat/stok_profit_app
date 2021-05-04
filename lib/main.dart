@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -6,6 +7,9 @@ import 'package:stok_profit_app/global/core/ad_state.dart';
 import 'package:stok_profit_app/home/home_page.dart';
 
 void main() {
+  if (!kDebugMode)
+    ErrorWidget.builder = (FlutterErrorDetails details) => Container();
+
   WidgetsFlutterBinding.ensureInitialized();
   final MainController controller = Get.put(MainController());
   final initFuture = MobileAds.instance.initialize();
@@ -19,6 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Market Profit Calculator',
+      // debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
