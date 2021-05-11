@@ -34,10 +34,11 @@ class Home extends StatelessWidget {
                             height: 60,
                             margin: EdgeInsets.only(top: 30),
                             child: AdWidget(ad: controller.bannerAdTop)),
-                      textfield(controller.sharesTextfield, "Shares"),
-                      textfield(controller.buyPriceTextfield, "Buy Price"),
-                      textfield(controller.sellPriceTextfield, "Sell Price"),
-                      textfield(controller.commissionTextfield, "Commissions"),
+                      textfield(controller.sharesTextfield, "amount".tr),
+                      textfield(controller.buyPriceTextfield, "buyprice".tr),
+                      textfield(controller.sellPriceTextfield, "sellprice".tr),
+                      textfield(
+                          controller.commissionTextfield, "commissions".tr),
                       ElevatedButton(
                         onPressed: () {
                           controller.calculate();
