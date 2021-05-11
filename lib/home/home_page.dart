@@ -49,11 +49,12 @@ class Home extends StatelessWidget {
                               MaterialStateProperty.all<Color>(Colors.blue),
                         ),
                         child: Text(
-                          "Calculate",
+                          "calculate".tr,
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
-                      Obx(() => Text("Profit / Loss: " +
+                      Obx(() => Text("profit".tr +
+                          " " +
                           formatCurrency
                               .format(controller.result.value)
                               .toString())),

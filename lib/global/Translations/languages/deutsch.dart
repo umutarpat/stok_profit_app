@@ -4,5 +4,7 @@ homeDeutsch() {
     'buyprice': 'Kaufpreis',
     'sellprice': 'Verkaufspreis',
     'commissions': 'Provisionen',
+    'calculate': 'Berechne',
+    'profit': 'Profitieren / Verlust:',
   };
 }
