@@ -16,7 +16,9 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       //  appBar: AppBar(),
+
       resizeToAvoidBottomInset: false,
+
       body: GetBuilder<HomeController>(
           init: controller,
           builder: (_) {
